@@ -19,7 +19,7 @@ resource "azurerm_network_security_group" "vm-nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "*"
+    source_address_prefix      = var.your_ip_address
     destination_address_prefix = "*"
   }
   tags = var.tags
@@ -50,6 +50,7 @@ resource "azurerm_linux_virtual_machine" "linux" {
   location            = data.azurerm_resource_group.resource-group.location
   size                = "Standard_B1s"
   admin_username      = "azadmin"
+  admin_password = "${var.vmname}!${var.suffix}"
   network_interface_ids = [
     azurerm_network_interface.net-interface.id,
   ]
