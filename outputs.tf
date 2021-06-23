@@ -8,3 +8,7 @@ output "vm_public_ip" {
 output "lumos_deployed" {
   value = var.deploy_lumos
 }
+
+output "admin_vm_password" {
+  value = "${var.vmname}!${var.suffix}"
+}

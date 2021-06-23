@@ -58,18 +58,19 @@ cat <<__END__
                                     Do not allow the console to time out!
 __END__
 
-    echo "export TF_VAR_depoy_lumos=$(terraform output lumos_deployed | tr -d '"')" >> ~/TF_variables
-    rm ~/demo
+#    echo "export TF_VAR_depoy_lumos=$(terraform output lumos_deployed | tr -d '"')" >> ~/TF_variables
+   rm ~/demo
     sleep 330
     ssh  -o "StrictHostKeyChecking no" azadmin@$(terraform output vm_public_ip | tr -d '"') -i ~/.ssh/container_lab_ssh_key
 }
 
 # Main demo down function
 demo_down() {
-    terraform destroy && rm ~/TF_variables
-    cd ~
-#    rm ~/falcon-container-terraform
-#    rm -rf ~/$REPO
+    cd rm ~/falcon-container-terraform && \
+    terraform destroy && rm ~/TF_variables && \
+    cd ~ && \
+    rm ~/falcon-container-terraform && \
+    rm -rf ~/$REPO
 }
 
 main(){
