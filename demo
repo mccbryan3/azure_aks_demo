@@ -67,7 +67,8 @@ __END__
 demo_down() {
     export REPO=csdemo_azure_aks
     cd ~/falcon-container-terraform && \
-    terraform destroy && rm ~/TF_variables && \
+    terraform destroy
+    terraform apply -destroy  -auto-approve && rm ~/TF_variables && \
     cd ~ && \
     rm ~/falcon-container-terraform && \
     rm -rf ~/$REPO
