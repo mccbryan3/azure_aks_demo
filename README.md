@@ -40,7 +40,7 @@ wget https://raw.githubusercontent.com/mccbryan3/csdemo_azure_aks/main/demo
 /bin/bash demo up
 ```
 
-Provide the Falcon API Keys and CID to be used for the demo environment.
+* Provide the Falcon API Keys, CID and unique suffix to be used for the demo environment.
 
 NOTE:
 
