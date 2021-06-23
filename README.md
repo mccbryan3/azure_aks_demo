@@ -23,10 +23,15 @@ User then may
 
 ### Usage
 
- - Open your Azure cloud shell
- - Verify that your are on the correct subscription
- - Verify that your identity in upper right corner is correct)
- - Paste the following to your cloud shell
+ - Open CloudShare and depoly Environment for Azure selecting `Create and External Cloud User` option
+ - Wait for the connection to your startup VM instance
+ - Run `sudo su -` and paste your CloudShare user password
+    - Credentials can be found under `Connectivity` -> `Connection Details`
+ - Run `/var/lib/cloud/instance/scripts/part-001` to install pre-reqs
+ - Run `az login` and complete authentication for you external cloud account
+    - Credentials can be found under the `Public Clouds` link in your environment
+ - Deploy the environment using terraform with the instructions below
+
  
 ```
 wget https://raw.githubusercontent.com/mccbryan3/csdemo_azure_aks/main/demo
@@ -34,6 +39,8 @@ wget https://raw.githubusercontent.com/mccbryan3/csdemo_azure_aks/main/demo
 ```
 /bin/bash demo up
 ```
+
+Provide the Falcon API Keys and CID to be used for the demo environment.
 
 NOTE:
 
@@ -64,6 +71,7 @@ From a session on the admin VM, read MOTD message or if no message exists run th
 ```
 tail /etc/motd.log
 ```
+- Rerun `demo down` on errors for demo down (aka `terraform destroy`) 
 
 ### Known limitations
 
