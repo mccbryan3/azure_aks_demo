@@ -19,7 +19,7 @@ resource "azurerm_network_security_group" "vm-nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = var.your_ip_address
+    source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
   tags = var.tags
