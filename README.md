@@ -25,9 +25,8 @@ User then may
 
  - Open CloudShare and depoly Environment for Azure selecting `Create and External Cloud User` option
  - Wait for the connection to your startup VM instance
- - Run `sudo su -` and paste your CloudShare user password
-    - Credentials can be found under `Connectivity` -> `Connection Details`
  - Run `/var/lib/cloud/instance/scripts/part-001` to install pre-reqs
+     - Credentials can be found under `Connectivity` -> `Connection Details`
  - Run `az login` and complete authentication for you external cloud account
     - Credentials can be found under the `Public Clouds` link in your environment
  - Deploy the environment using terraform with the instructions below
