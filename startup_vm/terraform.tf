@@ -5,18 +5,6 @@ variable "prefix" {
   default = "cloudshare"
 }
 
-variable "custom_data" {
-    default =<<EOF
-        #!/bin/bash
-        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-        apt-get update
-        apt-get install jq unzip -y
-        wget https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
-        unzip terraform_1.0.0_linux_amd64.zip
-        mv terraform /usr/local/bin
-        EOF
-}
-
 # Linux Machine
 
 resource "azurerm_network_interface" "main" {
@@ -67,7 +55,6 @@ resource "azurerm_linux_virtual_machine" "main" {
   location              = "${data.azurerm_resource_group.main.location}"
 
   resource_group_name   = "${data.azurerm_resource_group.main.name}"
-  custom_data = base64encode("${var.custom_data}")
   
   admin_username = "azadmin"
   disable_password_authentication = false
