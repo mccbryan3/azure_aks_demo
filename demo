@@ -22,7 +22,7 @@ export TF_VAR_resource_group_name=$(az group list | jq '.[].name' | sed 's/\"//g
       export TF_VAR_falcon_client_id
 [ -z "$TF_VAR_falcon_client_secret" ]  && read -p 'Enter the Falcon API Client Secret: ' TF_VAR_falcon_client_secret && \
       export TF_VAR_falcon_client_secret
-[ -z "$TF_VAR_falcon_cid" ] && read -p 'Enter the Falcon CID ' TF_VAR_falcon_cid && \
+[ -z "$TF_VAR_falcon_cid" ] && read -p 'Enter the Falcon CID: ' TF_VAR_falcon_cid && \
       export TF_VAR_falcon_cid
 [ -z "$TF_VAR_falcon_cloud" ] && read -p 'Enter the Falcon Platform cloud region: ' TF_VAR_falcon_cloud && \
       export TF_VAR_falcon_cloud
